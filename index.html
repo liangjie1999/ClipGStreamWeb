@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="ClipGStream: Clip-Stream Gaussian Splatting for Any Length and Any Motion Multi-View Dynamic Scene Reconstruction">
+  <meta name="keywords" content="Multi-view dynamic scene reconstruction, Gaussian Splatting">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> ClipGStream: Clip-Stream Gaussian Splatting for Any Length and Any Motion Multi-View Dynamic Scene Reconstruction</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/cvpr.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    </div>
+  </nav>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title"><span style="color: #7B68EE;">ClipGStream</span>: Clip-Stream Gaussian Splatting for Any Length and Any Motion Multi-View Dynamic Scene Reconstruction</h1>
+
+            <div class="paper-header">
+                <div class="authors">
+                  <a href="">Jie Liang</a><sup>1,2*</sup>,
+                  Jiahao Wu<sup>1,2*</sup>,
+                  Chao Wang<sup>2‡</sup>,
+                  Jiayu Yang<sup>2</sup>,
+                  Xiaoyun Zheng<sup>2</sup>,
+                  Kaiqiang Xiong<sup>1,2</sup>,
+                  Zhanke Wang<sup>1</sup>,
+                  Jinbo Yan<sup>1</sup>,
+                  Feng Gao<sup>3</sup>,
+                  Ronggang Wang<sup>1,2,4†</sup>
+                </div>
+
+                <div class="affiliations">
+                  <div><sup>1</sup> Guangdong Provincial Key Laboratory of Ultra High Definition Immersive Media Technology</div>
+                  <div>Shenzhen Graduate School, Peking University</div>
+                  <div><sup>2</sup> Pengcheng Lab, <sup>3</sup> Peking University, <sup>4</sup> MIGU Video Co., Ltd.,</div>
+                </div>
+                
+                <div style="color: #00d1b2;">CVPR 2026</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          
+          <div class="publication-video">
+            <img src="static\images\image.png" alt="Extracted image from PDF" style="width: 150%; max-width: 750px;">
+          </div>
+          <h2 class="title is-3" style="margin-bottom: 40px;">Training Pipeline</h2>
+          <video poster="./static/ourvideos/pipeline.png" controls playsinline style="width: 100%; height: auto;">
+            <source src="static/ourvideos/method.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+Dynamic 3D scene reconstruction is essential for immersive media such as VR, MR, and XR, yet remains challenging for long multi-view sequences with large-scale motion. Existing dynamic Gaussian approaches are either Frame-Stream, offering scalability but poor temporal stability, or Clip, achieving local consistency at the cost of high memory and limited sequence length. We propose ClipGStream, a hybrid reconstruction framework that performs stream optimization at the clip level rather than the frame level. The sequence is divided into short clips, where dynamic motion is modeled using clip-independent spatio-temporal fields and residual anchor compensation to capture local variations efficiently, while inter-clip inherited anchors and decoders maintain structural consistency across clips. This Clip-Stream design enables scalable, flicker-free reconstruction of long dynamic videos with high temporal coherence and reduced memory overhead. Extensive experiments demonstrate that ClipGStream achieves state-of-the-art reconstruction quality and efficiency.
+</p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+
+      <!-- Paper video. -->
+      <!--/ Paper video. -->
+    </div>
+  </section>
+
+  <!--/ Visual Effects. -->
+
+  <!-- Matting. -->
+  <div class="container" style="max-width: 1200px; margin: 80px auto 0 auto;">
+    <div class="has-text-centered">
+      <h2 class="title is-3">Long 360 Dataset (Large-Scale Motion, 1400 frames)</h2>
+
+      <p class="mb-5" style="max-width: 800px; margin-left:200px">
+        Unlike prior approaches, our method is the first to achieve temporal consistency on long-sequence, large-motion
+        datasets while supporting efficient random access.
+      </p>
+
+      <div class="columns is-centered">
+        <div class="column is-half has-text-centered">
+          <video autoplay controls muted loop playsinline style="width: 140%; height: auto;">
+            <source src="static/ourvideos/1400/smooth_dynamic.mp4" type="video/mp4">
+          </video>
+          <p class="mt-2 has-text-weight-semibold">Ours</p>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="columns is-centered is-multiline">
+
+          <!-- 第一行 -->
+          <div class="column is-half has-text-centered">
+            <video autoplay controls muted loop playsinline style="width: 100%; height: auto;">
+              <source src="static/ourvideos/1400/oneBigGOP.mp4" type="video/mp4">
+            </video>
+            <p class="mt-2 has-text-weight-semibold">LocalDyGS (one Clip)</p>
+          </div>
+          <div class="column is-half has-text-centered">
+            <video autoplay controls muted loop playsinline style="width: 100%; height: auto;">
+              <source src="static/ourvideos/1400/smallGOPs.mp4" type="video/mp4">
+            </video>
+            <p class="mt-2 has-text-weight-semibold">LocalDyGS (140 Clips)</p>
+          </div>
+
+          <!-- 第二行 -->
+          <div class="column is-half has-text-centered">
+            <video autoplay controls muted loop playsinline style="width: 100%; height: auto;">
+              <source src="static/ourvideos/1400/4DGaussian.mp4" type="video/mp4">
+            </video>
+            <p class="mt-2 has-text-weight-semibold">4DGaussian (One Clip)</p>
+          </div>
+          <div class="column is-half has-text-centered">
+            <video autoplay controls muted loop playsinline style="width: 100%; height: auto;">
+              <source src="static/ourvideos/1400/ours.mp4" type="video/mp4">
+            </video>
+            <p class="mt-2 has-text-weight-semibold">Ours (140 Clips)</p>
+          </div>
+
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+
+
+
+    <div class="container" style="max-width: 900px; margin: 80px auto 0 auto;">
+    <div class="has-text-centered">
+      <h2 class="title is-3">VRU Dataset GZ scene (Large-Scale Motion)</h2>
+      <p class="mb-5">
+        Our method achieves higher fidelity for both dynamic objects (e.g., athletes) and static regions (e.g., floor textures) in scenes with large motion.
+      </p>
+      <div class="columns is-centered is-variable is-4">
+        <!-- 第一行：Flame 对比 -->
+        <!-- 左侧视频（SPGS） -->
+        <div class="column is-one-half">
+          <div class="has-text-centered">
+            <video autoplay controls muted loop playsinline style="width: 100%;">
+              <source src="static/ourvideos/gz/3DGSStream.mp4" type="video/mp4">
+            </video>
+            <p class="mt-2 has-text-weight-semibold">3DGStream</p>
+          </div>
+        </div>
+
+        <!-- 右侧视频（Ours） -->
+        <div class="column is-one-half">
+          <div class="has-text-centered">
+            <!-- <video autoplay controls muted loop playsinline
+              style="width: 100%; height: 300px; object-fit: contain; background: #000;"> -->
+            <video autoplay controls muted loop playsinline style="width: 100%;">
+              style="width: 100%; height: 300px; object-fit: contain; background: #000;">
+              <source src="static/ourvideos/gz/spaceTImeGS.mp4" type="video/mp4">
+            </video>
+            <p class="mt-2 has-text-weight-semibold">SpaceTimeGS</p>
+          </div>
+        </div>
+      </div>
+      <div class="columns is-centered is-variable is-4" style="margin-top: 2rem;">
+        <!-- 第二行：Sear 对比 -->
+        <div class="column is-one-half">
+          <div class="has-text-centered">
+            <video autoplay controls muted loop playsinline style="width: 100%;">
+              <source src="static/ourvideos/gz/4DGS.mp4" type="video/mp4">
+            </video>
+            <p class="mt-2 has-text-weight-semibold">4DGaussian</p>
+          </div>
+        </div>
+        <div class="column is-one-half">
+          <div class="has-text-centered">
+            <video autoplay controls muted loop playsinline style="width: 100%;">
+              <source src="static/ourvideos/gz/ours.mp4" type="video/mp4">
+            </video>
+            <p class="mt-2 has-text-weight-semibold">Ours</p>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+    <div class="container" style="max-width: 900px; margin: 80px auto 0 auto;">
+    <div class="has-text-centered">
+      <h2 class="title is-3">N3DV Dataset (fine-scale motion)</h2>
+      <p class="mb-5">
+       Our method achieves better dynamic modeling of fine-grained motion, such as hand movements of the man and facial expressions of dogs.
+      </p>
+      <div class="columns is-centered is-variable is-4">
+        <div class="column is-one-half">
+          <div class="has-text-centered">
+            <video autoplay controls muted loop playsinline style="width: 100%;">
+              <source src="static/ourvideos/sear_steak/4DGaussian.mp4" type="video/mp4">
+            </video>
+            <p class="mt-2 has-text-weight-semibold">4DGaussian</p>
+          </div>
+        </div>
+
+        <div class="column is-one-half">
+          <div class="has-text-centered">
+            <video autoplay controls muted loop playsinline style="width: 100%;">
+              style="width: 100%; height: 300px; object-fit: contain; background: #000;">
+              <source src="static/ourvideos/sear_steak/Grid4D.mp4" type="video/mp4">
+            </video>
+            <p class="mt-2 has-text-weight-semibold">Grid4D</p>
+          </div>
+        </div>
+      </div>
+      <div class="columns is-centered is-variable is-4" style="margin-top: 2rem;">
+        <!-- 第二行：Sear 对比 -->
+        <div class="column is-one-half">
+          <div class="has-text-centered">
+            <video autoplay controls muted loop playsinline style="width: 100%;">
+              <source src="static/ourvideos/sear_steak/LocalDyGS.mp4" type="video/mp4">
+            </video>
+            <p class="mt-2 has-text-weight-semibold">LocalDyGS</p>
+          </div>
+        </div>
+        <div class="column is-one-half">
+          <div class="has-text-centered">
+            <video autoplay controls muted loop playsinline style="width: 100%;">
+              <source src="static/ourvideos/sear_steak/ours.mp4" type="video/mp4">
+            </video>
+            <p class="mt-2 has-text-weight-semibold">Ours</p>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+  <!-- 删除空 container -->
+
+  <!-- Method -->
+  <div class="container" style="max-width: 1500px; margin: 40px auto 0 auto;">
+    <div class="has-text-centered">
+      <h2 class="title is-3">Method</h2>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <div class="publication-video">
+            <img src="static/images/method.png" alt="Extracted image from PDF" style="width: 150%; max-width: 750px;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <footer class="footer" style="padding-top: 100px;">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a Creative
+              Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>
